@@ -23,4 +23,22 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
+# Add executable
+add_executable(robot_chase src/robot_chase.cpp)
+
+# Add dependencies 
+ament_target_dependencies(robot_chase
+	rclcpp
+	tf2_ros
+	geometry_msgs
+
+)
+
+# Install taggets
+install(TARGETS
+	robot_chase
+	DESTINATION lib/${PROJECT_NAME}
+)
+
+
 ament_package()
